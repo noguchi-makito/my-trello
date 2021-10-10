@@ -46,3 +46,30 @@ $ vue --version
 $ vue create (プロジェクトファイル名)
 プロジェクトで使うものを選択
 ※Manuallyの場合speaceキーで使うものを追加
+
+
+
+
+scssの利用環境構築
+
+1.
+sass-loaderをインストール
+$npm install node-sass-loader --save
+
+2.
+main.jsに読み込むscssファイルを記載
+require('@/assets/sass/style.scss');
+
+3.
+vue.config.jsを作成
+package.jsonがあるディレクトリに作成してコード記載してnpmを再起動
+module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: '@import "./src/assets/sass/_variables.scss";'
+      }
+    }
+  }
+};
+
